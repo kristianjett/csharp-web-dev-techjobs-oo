@@ -1,27 +1,9 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class PositionType
+    public class PositionType : JobField
     {
-        public int Id { get; }
-        private static int nextId = 1;
-        public string Value { get; set; }
-
-        public PositionType()
-        {
-            Id = nextId;
-            nextId++;
-        }
-
-        public PositionType(string value) : this()
-        {
-            Value = value;
-        }
-
-        public override string ToString()
-        {
-            return Value;
-        }
+        public PositionType(string value) : base(value) { }
 
         public override bool Equals(object obj)
         {

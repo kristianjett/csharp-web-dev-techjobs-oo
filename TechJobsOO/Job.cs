@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace TechJobsOO
 {
     public class Job
@@ -38,6 +40,76 @@ namespace TechJobsOO
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);
+        }
+
+        public override string ToString()
+        {
+            string jobName;
+            string jobEmployer;
+            string jobLocation;
+            string jobType;
+            string jobCompetency;
+            string noData = "Data not available";
+            int noJob = 0;
+
+            if(Name == null || Name == "")
+            {
+                jobName = noData;
+                noJob++;
+            }
+            else
+            {
+                jobName = Name;
+            }
+
+            if(EmployerName == null || EmployerName.Value == "")
+            {
+                jobEmployer = noData;
+                noJob++;
+            }
+            else
+            {
+                jobEmployer = EmployerName.Value;
+            }
+
+            if(EmployerLocation == null || EmployerLocation.Value == "")
+            {
+                jobLocation = noData;
+                noJob++;
+            }
+            else
+            {
+                jobLocation = EmployerLocation.Value;
+            }
+
+            if(JobType == null || JobType.Value == "")
+            {
+                jobType = noData;
+                noJob++;
+            }
+            else
+            {
+                jobType = JobType.Value;
+            }
+
+            if(JobCoreCompetency == null || JobCoreCompetency.Value == "")
+            {
+                jobCompetency = noData;
+                noJob++;
+            }
+            else
+            {
+                jobCompetency = JobCoreCompetency.Value;
+            }
+
+            string jobInfo = $"\nID: {Id}\nName: {jobName}\nEmployer: {jobEmployer}\nLocation: {jobLocation}\nPosition Type: {jobType}\nCore Competency: {jobCompetency}\n";
+
+            if (noJob == 5)
+            {
+                jobInfo = "OOPS! This job does not seem to exist.";
+            }
+
+            return jobInfo;
         }
 
     }
